@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" name="viewport">
+	<title>RC Calculator</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="style.css">
+</head>
+	<body>
+		<div class="title-container">
+			<img src="title_transparent(1).png" style="width:260px; height:150px; margin-bottom:12px">
+		</div>
+		<form id="info-form">
+			<fieldset>
+				<legend>Player Info</legend>
+				<label>Enter base level: </label>
+				<input type="number" id="info-base-lvl">
+				<button type="submit">Calculate</button>
+				<div id="info-res" style="display:none; text-align:center;">
+					<p id="exp-res"></p>
+					<p id="hp-res"></p>
+					<p id="mp-res"></p>
+					<p id="speed-res"></p>
+				</div>
+			</fieldset>
+		</form>
+		<form id="dmg-form">
+			<fieldset>
+				<legend>Damage Calculator</legend>
+				<label>Choose mode:</label>
+				<div class="radio">
+					<input type="radio" name="dmg-mode" value="auto" checked>
+					<label>Auto</label>
+					<input type="radio" name="dmg-mode" value="special" >
+					<label>Special</label>
+				</div>
+				<label>Choose type:</label>
+				<div class="radio">
+					<input type="radio" name="dmg-type" value="melee" checked>
+					<label>Melee</label>
+					<input type="radio" name="dmg-type" value="dist">
+					<label>Distance</label>
+					<input type="radio" name="dmg-type" value="magic">
+					<label>Magic</label>
+				</div>
+				<label>Enter base level: </label>
+				<input type="number" id="dmg-lvl">
+				<label>Enter your stat: </label>
+				<input type="number" id="dmg-stat">
+				<label>Enter weapon attack: </label>
+				<input type="number" id="dmg-atk">
+				<label>Choose mob: </label>
+				<select id="dmg-mob">
+					<option value="0">Rat Lv.1</option>
+					<option value="1">Rat Lv.3</option>
+					<option value="2">Crow Lv.6</option>
+					<option value="3">Wolf Lv.9</option>
+					<option value="4">Scorpion Lv.12</option>
+					<option value="5">Cobra Lv.14</option>
+					<option value="6">Worm Lv.14</option>
+					<option value="7">Goblin Lv.15</option>
+					<option value="8">Mummy Lv.25</option>
+					<option value="9">Pharaoh Lv.35</option>
+					<option value="10">Assasin Lv.45</option>
+					<option value="11">Assasin Lv.50</option>
+					<option value="12">Assasin Ninja Lv.55</option>
+					<option value="13">Zombie Lv.65</option>
+					<option value="14">Skeleton Lv.75</option>
+					<option value="15">Skeleton Archer Lv.80</option>
+					<option value="16">Skeleton Warrior Lv.90</option>
+					<option value="17">Vampire Lv.100</option>
+					<option value="18">Vampire Lv.110</option>
+					<option value="19">Drow Assasin Lv.125</option>
+					<option value="20">Drow Ranger Lv.120</option>
+					<option value="21">Drow Mage Lv.130</option>
+					<option value="22">Drow Fighter Lv.135</option>
+					<option value="23">Drow Sorceress Lv.140</option>
+					<option value="24">Lizard Warrior Lv.150</option>
+					<option value="25">Lizard Archer Lv.160</option>
+					<option value="26">Lizard Shaman Lv.170</option>
+					<option value="27">Lizard Captain Lv.180</option>
+					<option value="28">Lizard High-Shaman Lv.190</option>
+					<option value="29">Djinn Lv.150</option>
+					<option value="30">Dead Eyes Lv.170</option>
+					<option value="31">Gargoyle Lv.190</option>
+					<option value="32">Minotaur Lv.225</option>
+					<option value="33">Minotaur Lv.250</option>
+					<option value="34">Minotaur Lv.275</option>
+					<option value="35">Dragon Lv.250</option>
+					<option value="36">Dragon Hatchling Lv.240</option>
+					<option value="37">Dragon Warden Lv.280</option>
+					<option value="38">Ice Elemental Lv.300</option>
+					<option value="39">Ice Dragon Lv.320</option>
+					<option value="40">Yeti Lv.350</option>
+				</select>
+				<button type="submit">Calculate</button>
+				<div id="dmg-res" style="display:none; text-align:center;">
+					<p id="dmg-mode-res"></p>
+					<p id="dmg-type-res"></p>
+					<p id="minDmg-res"></p>
+					<p id="maxDmg-res"></p>
+					<p id="chance-res"></p>
+					<p id="ohko-res"></p>
+				</div>
+			</fieldset>
+		</form>
+		<form id="train-form">
+			<fieldset>
+				<legend>Training Helper</legend>
+				<label>Enter base level: </label>
+				<input type="number" id="train-lvl" required>
+				<label>Enter your stat: </label>
+				<input type="number" id="train-stat" required>
+				<label>Enter weapon stat: </label>
+				<input type="number" id="train-atk" required>
+				<label>How many simulations to perform: </label>
+				<input type="number" value="100" id="train-sim" required>
+				<button type="submit">Calculate & Simulate</button>
+				<div class="highlight" style="text-align:center;">
+					<label>Choose a mob:</label>
+					<select id="train-mob" disabled>
+						<optgroup label="Recommended">
+							<option selected disabled hidden></option>
+							<option value="41">First Best</option>
+							<option value="42">Second Best</option>
+							<option value="43">Third Best</option>
+						</optgroup>
+						<optgroup id="manual" label="Manual search">
+							<option value="0">Rat Lv.1</option>
+							<option value="1">Rat Lv.3</option>
+							<option value="2">Crow Lv.6</option>
+							<option value="3">Wolf Lv.9</option>
+							<option value="4">Scorpion Lv.12</option>
+							<option value="5">Cobra Lv.14</option>
+							<option value="6">Worm Lv.14</option>
+							<option value="7">Goblin Lv.15</option>
+							<option value="8">Mummy Lv.25</option>
+							<option value="9">Pharaoh Lv.35</option>
+							<option value="10">Assasin Lv.45</option>
+							<option value="11">Assasin Lv.50</option>
+							<option value="12">Assasin Ninja Lv.55</option>
+							<option value="13">Zombie Lv.65</option>
+							<option value="14">Skeleton Lv.75</option>
+							<option value="15">Skeleton Archer Lv.80</option>
+							<option value="16">Skeleton Warrior Lv.90</option>
+							<option value="17">Vampire Lv.100</option>
+							<option value="18">Vampire Lv.110</option>
+							<option value="19">Drow Assasin Lv.125</option>
+							<option value="20">Drow Ranger Lv.120</option>
+							<option value="21">Drow Mage Lv.130</option>
+							<option value="22">Drow Fighter Lv.135</option>
+							<option value="23">Drow Sorceress Lv.140</option>
+							<option value="24">Lizard Warrior Lv.150</option>
+							<option value="25">Lizard Archer Lv.160</option>
+							<option value="26">Lizard Shaman Lv.170</option>
+							<option value="27">Lizard Captain Lv.180</option>
+							<option value="28">Lizard High-Shaman Lv.190</option>
+							<option value="29">Djinn Lv.150</option>
+							<option value="30">Dead Eyes Lv.170</option>
+							<option value="31">Gargoyle Lv.190</option>
+							<option value="32">Minotaur Lv.225</option>
+							<option value="33">Minotaur Lv.250</option>
+							<option value="34">Minotaur Lv.275</option>
+							<option value="35">Dragon Lv.250</option>
+							<option value="36">Dragon Hatchling Lv.240</option>
+							<option value="37">Dragon Warden Lv.280</option>
+							<option value="38">Ice Elemental Lv.300</option>
+							<option value="39">Ice Dragon Lv.320</option>
+							<option value="40">Yeti Lv.350</option>
+						</optgroup>
+					</select>
+					<p id="name"></p>
+					<p id="tick"></p>
+					<p id="tick3600"></p>
+					<p id="elapsed"></p>
+					<p id="dps"></p>
+					<p id="arrow"></p>
+					<p id="mana"></p>
+				</div>
+			</fieldset>
+		</form>
+		<form id="off-form">
+			<fieldset>
+				<legend>Offline Training Calculator</legend>
+				<label>Choose mode:</label>
+				<label>Enter your stat: </label>
+				<input type="number" id="off-stat">
+				<label>Enter goal stat: </label>
+				<input type="number" id="off-goal">
+				<label>Enter offline training time (hour): </label>
+				<input type="number" step="any" id="off-time">
+				<button type="submit">Calculate</button>
+				<div id="off-res" style="display:none; text-align:center;">
+					<p id="exp"></p>
+					<p id="exp-gain"></p>
+					<p id="exp300"></p>
+					<p id="exp200"></p>
+					<p id="time"></p>
+					<p id="time300"></p>
+					<p id="time200"></p>
+				</div>
+			</fieldset>
+		</form>
+		<form id="pk-form">
+			<fieldset>
+				<legend>PK Gold Calculator</legend>
+				<label>Enter base level: </label>
+				<input type="number" id="pk-base-lvl">
+				<button type="submit">Calculate</button>
+				<div id="pk-res" style="display:none; text-align:center;">
+					<p id="pk1-res"></p>
+					<p id="pk2-res"></p>
+					<p id="pk3-res"></p>
+					<p id="pk4-res"></p>
+				</div>
+			</fieldset>
+		</form>
+		<p style="color:#aaa; font-size:125%;">If you have any question, feel free to message me at <ins>Discord</ins>: you are going to brasil#6195, or in <ins>Rucoy</ins> when I'm online: Scarlett Devil</p>
+		<a href="https://www.discord.com/">Discord</a>
+		<script src="script.js"></script>
+	</body>
+</html>

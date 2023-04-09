@@ -1,0 +1,73 @@
+body{
+	background-image:url('bg.png');
+	background-size:cover;
+	background-color:#686868;
+	font-family:courier;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family:fantasy;
+	color:#aaa;
+}
+p, a{
+	
+	font-size:1rem;
+	font-weight:normal;
+	margin:5px;
+}
+label{
+	font-size:1rem;
+	font-weight:normal;
+	color:#ccc;
+	margin:2px;
+	margin-top:8px;
+}
+input[type="number"], select, option{
+	background-color:#454545;
+	color:#ccc;
+	font-family:courier;
+	border:1px solid #ababab;
+	border-radius:3px;
+	padding:4px;
+	margin:0px;
+}
+button{
+	background-color:#333333;
+	color:#ccc;
+	font-family:courier;
+	border:1px solid #ababab;
+	border-radius:1px;
+	padding:2px;
+	margin:0px;
+	margin-top:8px;
+}
+fieldset{
+	background:linear-gradient(to bottom, #595959, #131313);
+	display:grid;
+	margin-top:4px;
+}
+.highlight, legend{
+	background-color:#686868;
+	color:#ccc;
+}
+.radio{
+	display:flex;
+	line-height:0px;
+	text-align:center;
+	justify-content:center;
+}
+input[type="radio"]{
+	margin:0px;
+	margin-left:8px;
+	font:courier;
+	color:#333333;
+	witdh:1.15em;
+	height:1.15em;
+	border:0.15em solid #ababab;
+	border-radius:50%;
+	place-content:center;
+}
+.title-container{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
