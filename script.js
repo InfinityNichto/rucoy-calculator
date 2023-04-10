@@ -44,19 +44,20 @@ function findBest(arr1, arr2, arr3, arr4, nth){
 			score[i]=arr1[i]+arr2[i]+arr4[i];
 			score[i]-=arr3[i];
 			if(arr2[i]>3100){
-				score[i]+=250;
+				score[i]+=500;
 			}
 			if(arr2[i]<2500){
-				score[i]-=250;
+				score[i]-=500;
 			}
 			if(arr4[i]>=90 && arr4[i]<=270){
-				score[i]+=300;
+				score[i]+=500;
 			}
 			if(arr4[i]<90 || arr4[i]>270){
-				score[i]-=300;
+				score[i]-=500;
 			}
 		}
 	}
+	
 	sorted.splice(0, score.length, ...score);
 	sorted.sort((a, b)=>b-a);
 	for(let i=0; i<41; i++){
@@ -223,21 +224,21 @@ document.querySelector('#train-form').addEventListener('submit', function handle
 		if(index===41){
 			index=findBest(tick, tick3600, dps, elapsed, 0);
 			document.getElementById('name').textContent=`Mob name: ${name[index]}`;
-			if(index===-1){
+			if(tick[index]===-1){
 				document.getElementById('name').textContent=`No good recommendation found, try changing your weapon attack or search manually that fits you.`;
 			}
 		}
 		else if(index===42){
 			index=findBest(tick, tick3600, dps, elapsed, 1);
 			document.getElementById('name').textContent=`Mob name: ${name[index]}`;
-			if(index===-1){
+			if(tick[index]===-1){
 				document.getElementById('name').textContent=`No good recommendation found, try changing your weapon attack or search manually that fits you.`;
 			}
 		}
 		else if(index===43){
 			index=findBest(tick, tick3600, dps, elapsed, 2);
 			document.getElementById('name').textContent=`Mob name: ${name[index]}`;
-			if(index===-1){
+			if(tick[index]===-1){
 				document.getElementById('name').textContent=`No good recommendation found, try changing your weapon attack or search manually that fits you.`;
 			}
 		}	
