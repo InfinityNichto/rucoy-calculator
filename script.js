@@ -246,7 +246,7 @@ document.querySelector('#train-form').addEventListener('submit', function handle
 			document.getElementById('name').textContent=``;
 		}
 		//console.log(`Index: ${index}`);
-		document.getElementById('tick').textContent=`Tickrate per mob: ${tick[index]} ticks`;
+		document.getElementById('tick').textContent=`Tickrate per kill: ${tick[index]} ticks`;
 		document.getElementById('tick3600').textContent=`Tickrate per hour: ${tick3600[index]}/3600 ticks`;
 		document.getElementById('elapsed').textContent=`Average time per kill: ${Math.floor(elapsed[index]/60)} min ${elapsed[index]%60} sec`;
 		document.getElementById('dps').textContent=`Average DPS per kill: ${dps[index]} DPS`;
